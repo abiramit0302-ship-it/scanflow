@@ -75,3 +75,26 @@ resource "aws_security_group" "worker" {
     Name = "${var.project_name}-worker-sg"
   }
 }
+# Free gateway endpoints, so S3 and DynamoDB traffic stays inside AWS
+# instead of going out over the internet.
+resource "aws_vpc_endpoint" "s3" {
+  vpc_id            = aws_vpc.main.id
+  service_name      = "com.amazonaws.${var.aws_region}.s3"
+  vpc_endpoint_type = "Gateway"
+  route_table_ids   = [aws_route_table.public.id]
+
+  tags = {
+    Name = "${var.project_name}-s3-endpoint"
+  }
+}
+
+resource "aws_vpc_endpoint" "dynamodb" {
+  vpc_id            = aws_vpc.main.id
+  service_name      = "com.amazonaws.${var.aws_region}.dynamodb"
+  vpc_endpoint_type = "Gateway"
+  route_table_ids   = [aws_route_table.public.id]
+
+  tags = {
+    Name = "${var.project_name}-dynamodb-endpoint"
+  }
+}

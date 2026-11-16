@@ -31,7 +31,7 @@ resource "aws_sqs_queue_policy" "scan_jobs" {
       Action    = "sqs:SendMessage"
       Resource  = aws_sqs_queue.scan_jobs.arn
       Condition = {
-        ArnEquals = { "aws:SourceArn" = aws_s3_bucket.uploads.arn }
+        ArnEquals = { "aws:SourceArn" = data.aws_s3_bucket.uploads.arn }
       }
     }]
   })
@@ -39,7 +39,7 @@ resource "aws_sqs_queue_policy" "scan_jobs" {
 
 # When a .zip file is uploaded, S3 sends a message to the queue
 resource "aws_s3_bucket_notification" "uploads" {
-  bucket = aws_s3_bucket.uploads.id
+  bucket = data.aws_s3_bucket.uploads.id
 
   queue {
     queue_arn     = aws_sqs_queue.scan_jobs.arn

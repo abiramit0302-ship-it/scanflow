@@ -1,0 +1,46 @@
+[0m[1maws_ecs_cluster.main: Creating...[0m[0m
+[0m[1maws_sqs_queue.scan_jobs_dlq: Creating...[0m[0m
+[0m[1maws_ecr_repository.scanner: Creating...[0m[0m
+[0m[1maws_cloudwatch_log_group.worker: Creating...[0m[0m
+[0m[1maws_vpc.main: Creating...[0m[0m
+[0m[1maws_dynamodb_table.scan_jobs: Creating...[0m[0m
+[0m[1maws_s3_bucket.reports: Creating...[0m[0m
+[0m[1maws_s3_bucket.uploads: Creating...[0m[0m
+[0m[1maws_cloudwatch_log_group.worker: Creation complete after 1s [id=/ecs/scanflow-worker][0m
+[0m[1maws_ecr_repository.scanner: Creation complete after 1s [id=scanflow-scanner][0m
+[0m[1maws_vpc.main: Creation complete after 2s [id=vpc-075585d407e4efc4d][0m
+[0m[1maws_internet_gateway.main: Creating...[0m[0m
+[0m[1maws_subnet.public[0]: Creating...[0m[0m
+[0m[1maws_security_group.worker: Creating...[0m[0m
+[0m[1maws_subnet.public[1]: Creating...[0m[0m
+[0m[1maws_internet_gateway.main: Creation complete after 1s [id=igw-0ad1416b598ebd58c][0m
+[0m[1maws_route_table.public: Creating...[0m[0m
+[0m[1maws_route_table.public: Creation complete after 1s [id=rtb-075c92fbd4030a194][0m
+[0m[1maws_vpc_endpoint.s3: Creating...[0m[0m
+[0m[1maws_vpc_endpoint.dynamodb: Creating...[0m[0m
+[0m[1maws_security_group.worker: Creation complete after 3s [id=sg-03b0eaf0cc52b47dc][0m
+[0m[1maws_sqs_queue.scan_jobs_dlq: Still creating... [00m10s elapsed][0m[0m
+[0m[1maws_ecs_cluster.main: Still creating... [00m10s elapsed][0m[0m
+[0m[1maws_dynamodb_table.scan_jobs: Still creating... [00m10s elapsed][0m[0m
+[0m[1maws_vpc_endpoint.dynamodb: Creation complete after 7s [id=vpce-0deea5d52aaa7daa5][0m
+[0m[1maws_ecs_cluster.main: Creation complete after 11s [id=arn:aws:ecs:us-east-1:283293091645:cluster/scanflow-cluster][0m
+[0m[1maws_vpc_endpoint.s3: Creation complete after 8s [id=vpce-0112e4fe4c967c519][0m
+[0m[1maws_subnet.public[0]: Still creating... [00m10s elapsed][0m[0m
+[0m[1maws_subnet.public[1]: Still creating... [00m10s elapsed][0m[0m
+[0m[1maws_subnet.public[1]: Creation complete after 12s [id=subnet-04e347a04e40b1f01][0m
+[0m[1maws_subnet.public[0]: Creation complete after 12s [id=subnet-099e8a984bd2774b3][0m
+[0m[1maws_route_table_association.public[1]: Creating...[0m[0m
+[0m[1maws_route_table_association.public[0]: Creating...[0m[0m
+[0m[1maws_route_table_association.public[0]: Creation complete after 0s [id=rtbassoc-09e1e8c62f3b65727][0m
+[0m[1maws_route_table_association.public[1]: Creation complete after 0s [id=rtbassoc-0204cbcd6b8ec451c][0m
+[0m[1maws_dynamodb_table.scan_jobs: Creation complete after 17s [id=scanflow-scan-jobs][0m
+[0m[1maws_sqs_queue.scan_jobs_dlq: Still creating... [00m20s elapsed][0m[0m
+[0m[1maws_sqs_queue.scan_jobs_dlq: Creation complete after 26s [id=https://sqs.us-east-1.amazonaws.com/283293091645/scanflow-scan-jobs-dlq][0m
+[0m[1maws_sqs_queue.scan_jobs: Creating...[0m[0m
+[0m[1maws_cloudwatch_metric_alarm.dlq_has_messages: Creating...[0m[0m
+[0m[1maws_cloudwatch_metric_alarm.dlq_has_messages: Creation complete after 1s [id=scanflow-dlq-has-messages][0m
+[0m[1maws_sqs_queue.scan_jobs: Still creating... [00m10s elapsed][0m[0m
+[0m[1maws_sqs_queue.scan_jobs: Still creating... [00m20s elapsed][0m[0m
+[0m[1maws_sqs_queue.scan_jobs: Creation complete after 26s [id=https://sqs.us-east-1.amazonaws.com/283293091645/scanflow-scan-jobs][0m
+[0m[1maws_cloudwatch_metric_alarm.jobs_stuck: Creating...[0m[0m
+[0m[1maws_cloudwatch_metric_alarm.jobs_stuck: Creation complete after 0s [id=scanflow-jobs-stuck][0m

@@ -1,0 +1,30 @@
+[0m[1maws_sqs_queue_policy.scan_jobs: Creating...[0m[0m
+[0m[1maws_s3_bucket_public_access_block.uploads: Creating...[0m[0m
+[0m[1maws_s3_bucket_public_access_block.reports: Creating...[0m[0m
+[0m[1maws_ecs_task_definition.worker: Creating...[0m[0m
+[0m[1maws_s3_bucket_public_access_block.uploads: Creation complete after 0s [id=scanflow-uploads-283293091645][0m
+[0m[1maws_ecs_task_definition.worker: Creation complete after 0s [id=scanflow-worker][0m
+[0m[1maws_ecs_service.worker: Creating...[0m[0m
+[0m[1maws_s3_bucket_public_access_block.reports: Creation complete after 0s [id=scanflow-reports-283293091645][0m
+[0m[1maws_ecs_service.worker: Creation complete after 2s [id=arn:aws:ecs:us-east-1:283293091645:service/scanflow-cluster/scanflow-worker][0m
+[0m[1maws_cloudwatch_dashboard.main: Creating...[0m[0m
+[0m[1maws_cloudwatch_dashboard.main: Creation complete after 0s [id=scanflow-dashboard][0m
+[0m[1maws_sqs_queue_policy.scan_jobs: Still creating... [00m10s elapsed][0m[0m
+[0m[1maws_sqs_queue_policy.scan_jobs: Still creating... [00m20s elapsed][0m[0m
+[0m[1maws_sqs_queue_policy.scan_jobs: Creation complete after 25s [id=https://sqs.us-east-1.amazonaws.com/283293091645/scanflow-scan-jobs][0m
+[0m[1maws_s3_bucket_notification.uploads: Creating...[0m[0m
+[0m[1maws_s3_bucket_notification.uploads: Creation complete after 0s [id=scanflow-uploads-283293091645][0m
+[0m[1m[32m
+Apply complete! Resources: 7 added, 0 changed, 0 destroyed.[0m
+[0m[1m[32m
+Outputs:
+
+[0mdashboard_url = "https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#dashboards/dashboard/scanflow-dashboard"
+dlq_url = "https://sqs.us-east-1.amazonaws.com/283293091645/scanflow-scan-jobs-dlq"
+ecr_repository_url = "283293091645.dkr.ecr.us-east-1.amazonaws.com/scanflow-scanner"
+ecs_cluster = "scanflow-cluster"
+ecs_service = "scanflow-worker"
+jobs_table = "scanflow-scan-jobs"
+reports_bucket = "scanflow-reports-283293091645"
+scan_queue_url = "https://sqs.us-east-1.amazonaws.com/283293091645/scanflow-scan-jobs"
+uploads_bucket = "scanflow-uploads-283293091645"

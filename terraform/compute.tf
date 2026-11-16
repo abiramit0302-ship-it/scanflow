@@ -33,6 +33,12 @@ resource "aws_ecs_task_definition" "worker" {
   execution_role_arn       = data.aws_iam_role.lab_role.arn
   task_role_arn            = data.aws_iam_role.lab_role.arn
 
+  # CHANGED: run on ARM, so images built on our Apple-chip Mac work as they are
+  runtime_platform {
+    operating_system_family = "LINUX"
+    cpu_architecture        = "ARM64"
+  }
+
   container_definitions = jsonencode([{
     name      = "worker"
     image     = "${aws_ecr_repository.scanner.repository_url}:latest"
@@ -40,8 +46,8 @@ resource "aws_ecs_task_definition" "worker" {
 
     environment = [
       { name = "QUEUE_URL", value = aws_sqs_queue.scan_jobs.id },
-      { name = "UPLOADS_BUCKET", value = aws_s3_bucket.uploads.bucket },
-      { name = "REPORTS_BUCKET", value = aws_s3_bucket.reports.bucket },
+      { name = "UPLOADS_BUCKET", value = data.aws_s3_bucket.uploads.bucket },
+      { name = "REPORTS_BUCKET", value = data.aws_s3_bucket.reports.bucket },
       { name = "JOBS_TABLE", value = aws_dynamodb_table.scan_jobs.name }
     ]
 
@@ -60,7 +66,7 @@ resource "aws_ecs_service" "worker" {
   name            = "${var.project_name}-worker"
   cluster         = aws_ecs_cluster.main.id
   task_definition = aws_ecs_task_definition.worker.arn
-  desired_count   = 1
+  desired_count   = var.worker_desired_count # CHANGED: starts at 0, no image yet
   launch_type     = "FARGATE"
 
   network_configuration {
