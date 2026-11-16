@@ -1,0 +1,26 @@
+# Expected monthly usage for ScanFlow, so c3x can price the usage-based resources.
+# Assumption: about 200 scans per month, with small project zips (around 1 MB each).
+version: 0.1
+resource_usage:
+  aws_s3_bucket.uploads:
+    standard_storage_gb: 1
+    monthly_tier_1_requests: 1000
+    monthly_tier_2_requests: 1000
+  aws_s3_bucket.reports:
+    standard_storage_gb: 1
+    monthly_tier_1_requests: 1000
+    monthly_tier_2_requests: 5000
+  aws_sqs_queue.scan_jobs:
+    monthly_requests: 135000
+  aws_sqs_queue.scan_jobs_dlq:
+    monthly_requests: 100
+  aws_dynamodb_table.scan_jobs:
+    monthly_write_request_units: 1000
+    monthly_read_request_units: 20000
+    storage_gb: 1
+  aws_ecr_repository.scanner:
+    monthly_storage_gb: 1
+  aws_cloudwatch_log_group.worker:
+    monthly_data_ingested_gb: 1
+    monthly_data_stored_gb: 1
+    monthly_data_scanned_gb: 1
